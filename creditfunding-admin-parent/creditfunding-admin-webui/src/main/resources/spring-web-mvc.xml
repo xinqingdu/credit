@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--扫描MVC中controller-->
+    <context:component-scan base-package="com.itxiaodu.credit.mvc"></context:component-scan>
+    <!--spring MVC驱动-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <!--MVC三层-->
+    <!--View 层-->
+    <bean id="InternalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+<!--    异常映射-->
+    <bean id="" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!--key表示异常类名,value表示页面显示前后路径-->
+                <prop key="java.lang.Exception">system-error</prop>
+            </props>
+        </property>
+    </bean>
+<!--  配置请求视图,简化requestMapping  -->
+    <mvc:view-controller path="security/to/login/page.html" view-name="admin-login"/>
+    <mvc:view-controller path="security/to/main/page.html" view-name="admin-main"/>
+    <mvc:view-controller path="admin/to/add/page.html" view-name="admin-add"/>
+    <mvc:view-controller path="admin/to/edit/page.html" view-name="admin-edit"/>
+    <mvc:view-controller path="role/to/page.html" view-name="role-page"/>
+    <mvc:view-controller path="menu/to/page.html" view-name="menu-page"/>
+<!--  配置拦截器，mapping拦截的内容，exclude-mapping 放行的内容  -->
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/**"/>-->
+<!--            <mvc:exclude-mapping path="/security/do/login.html"/>-->
+<!--            <mvc:exclude-mapping path="/security/to/login/page.html"/>-->
+<!--            <mvc:exclude-mapping path="/security/do/logout.html"/>-->
+<!--            <bean class="com.itxiaodu.credit.mvc.interceptor.LoginInterceptor">-->
+<!--            </bean>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
+</beans>

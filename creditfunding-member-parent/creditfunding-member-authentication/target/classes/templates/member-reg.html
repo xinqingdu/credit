@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keys" content="">
+    <meta name="author" content="">
+    <base th:href="@{/}">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
+    <script type="text/javascript" src="script/common.js"></script>
+    <script type="text/javascript" src="script/member.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // var contentType="application/json;charset=UTF-8";
+            $("#sendBtn").click(function () {
+                // 1.获取接收短信的手机号
+                var phoneNum = $("[name=telephone]").val();
+                var url = "/auth/member/send/code/message.json";
+                var data = {
+                    "telephone": phoneNum,
+                    "length": 6
+                }
+                var dataType = "json";
+                var contentType = "application/x-www-form-urlencoded";
+                // 2.发送请求
+                sendAjax(url, data, contentType, sendResult, sendFailed);
+            });
+            $("#inputAccount").change(function () {
+                var loginAcct = $("[name=loginAccount]").val();
+                if (loginAcct == "" || loginAcct == null || $("#inputAccount").attr("placeholder") == loginAcct) {
+                    $("#showMessage").html("用户名不能为空！").css("color", "red");
+                    return;
+                }
+                var d = /[\u4E00-\u9FA5]+/.test(loginAcct);
+                if (d == true) {
+                    $("#showMessage").html("用户名不能含有中文！").css("color", "red");
+                    return;
+                }
+                var url = "/auth/member/account/use.json";
+                var data = {
+                    "loginAccount": loginAcct
+                }
+                var contentType = "application/x-www-form-urlencoded";
+                var dataType = "json";
+                var resultAjax = sendAjax(url, data, contentType, sendResult, sendFailed);
+                var status = resultAjax.status;
+                if (status != 200) {
+                    layer.msg("请求失败！" + status + " 说明：" + resultAjax.statusText);
+                    return null;
+                }
+                var resultEntity = resultAjax.responseJSON;
+                if (resultEntity.success == false) {
+                    $("#showMessage").html(resultEntity.message).css("color", "red");
+                } else {
+                    $("#showMessage").html(resultEntity.message).css("color", "green");
+                }
+            });
+            $("#inputUserPswdTemp").change(function () {
+                var pswd = $("[name=userPassword]").val();
+                var pswdTemp = $("[name=userPasswordTemp]").val();
+                if (pswd === pswdTemp) {
+                    $("#pswdMessage").html(null);
+                } else {
+                    $("#pswdMessage").html("密码不一致，请重新输入！").css("color", "red");
+                }
+            });
+
+        });
+        
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div><a class="navbar-brand" href="index.html" style="font-size:32px;">信积-以信用筹款 以名誉积金</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <form action="/auth/member/do/register" method="post" class="form-signin" role="form"
+            onSubmit="return beforeSubmit(this);">
+            <h2 class="form-signin-heading"><i class="glyphicon glyphicon-log-in"></i> 用户注册</h2>
+            <p th:text="${message}">显示从请求域取出的提示消息</p>
+            <div class="form-group has-success has-feedback">
+                <input type="text" name="loginAccount" class="form-control" id="inputAccount" placeholder="请输入登录账号"
+                    autofocus>
+                <p id="showMessage"></p>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-success has-feedback">
+                <input type="password" name="userPassword" class="form-control" id="inputUserPswd" placeholder="请输入登录密码"
+                    style="margin-top:10px;">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-success has-feedback">
+                <input type="password" name="userPasswordTemp" class="form-control" id="inputUserPswdTemp"
+                    placeholder="再输入登录密码" style="margin-top:10px;">
+                <p id="pswdMessage"></p>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-success has-feedback">
+                <input type="text" name="userName" class="form-control" id="inputSuccess3" placeholder="请输入用户名称"
+                    style="margin-top:10px;">
+                <span class="glyphicon glyphicon glyphicon-pencil form-control-feedback"></span>
+            </div>
+            <div class="form-group has-success has-feedback">
+                <input type="text" name="email" class="form-control" id="inputSuccess4" placeholder="请输入邮箱地址"
+                    style="margin-top:10px;">
+                <span class="glyphicon glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-success has-feedback">
+                <input name="telephone" type="text" class="form-control" id="inputSuccess5" placeholder="请输入手机号"
+                    style="margin-top:10px;">
+                <span class="glyphicon glyphicon glyphicon-earphone form-control-feedback"></span>
+            </div>
+            <div class="form-group has-success has-feedback">
+                <input type="text" name="code" class="form-control" id="inputSuccess6" placeholder="请输入验证码"
+                    style="margin-top:10px;">
+                <span class="glyphicon glyphicon glyphicon-comment form-control-feedback"></span>
+            </div>
+            <button type="button" id="sendBtn" class="btn btn-lg btn-success btn-block"> 获取验证码</button>
+            <button type="submit" class="btn btn-lg btn-success btn-block">注册</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

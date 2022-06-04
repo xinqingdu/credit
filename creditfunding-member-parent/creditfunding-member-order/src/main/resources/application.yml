@@ -1,0 +1,26 @@
+server:
+  port: 9900
+spring:
+  #  cloud:
+  #    inetutils:
+  #      timeout-seconds: 10
+  application:
+    name: itxiaodu-credit-order
+    id: itxiaodu-credit-order
+  thymeleaf:
+    #    spring default route
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: xxxx
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="creditfunding-member-entity" />
+        <module name="creditfunding-member-order" />
+        <module name="creditfunding-member-pay" />
+        <module name="creditfunding-member-mysql-pro" />
+        <module name="creditfunding-member-zuul" />
+        <module name="creditfunding-member-consumer-pro" />
+        <module name="creditfunding-member-redis-pro" />
+        <module name="common-utils" />
+        <module name="common-reverse" />
+        <module name="creditfunding-member-api" />
+        <module name="creditfunding-member-authentication" />
+        <module name="creditfunding-member-eureka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
+  </component>
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>creditfunding-admin-parent</artifactId>
+        <groupId>com.itxiaodu.credit</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>creditfunding-admin-component</artifactId>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.itxiaodu.credit</groupId>-->
+<!--            <artifactId>creditfunding-common-util</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.itxiaodu.credit</groupId>-->
+<!--            <artifactId>creditfunding-common-reverse</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.itxiaodu.credit</groupId>
+            <artifactId>creditfunding-admin-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.itxiaodu.credit</groupId>-->
+<!--            <artifactId>creditfunding-common-util</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.dodo.common</groupId>-->
+<!--            <artifactId>creditfunding-common-util</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+       </dependencies>
+</project>

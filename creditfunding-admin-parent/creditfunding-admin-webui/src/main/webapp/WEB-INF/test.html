@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="../jquery/jquery-2.1.1.min.js"></script>
+<script src="../layer/layer.js"></script>
+<script>
+    function test(url){
+        // var choose = confirm("你确定要删除吗？");
+        // if(choose){
+        //     layer.msg("删除成功！");
+        // }
+        // layer.msg("OK");
+        layer.confirm("你确定要删除吗？",{btn: ['确定', '取消'], title: "提示"},function(){yes(url)},no);
+        // if(ans){
+        //     window.location.reload();
+        // }
+    }
+    function yes(url){
+        layer.msg("删除成功！");
+        window.location.href = url;
+    }
+    function no(){
+        layer.msg("已取消！");
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+    <a href="javascript:;" onclick="test('pos.html')">测试</a>
+    <br/>
+    <br/>
+    <button onclick="test()">按下</button>
+</body>
+</html>

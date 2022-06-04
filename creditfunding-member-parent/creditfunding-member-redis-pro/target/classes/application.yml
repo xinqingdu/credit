@@ -1,0 +1,26 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: itxiaodu-credit-redis
+  redis:
+    host: xxxx
+    timeout: 1000
+    lettuce:
+      pool:
+        max-active: 8
+
+#  session:
+#    store-type: redis
+
+eureka:
+  client:
+    #    register-with-eureka: false
+    #    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:1000/eureka/xxxxx
+#mybatis:
+#  mapper-locations: classpath*:mybatis/mapper/*Mapper*.xml
+#logging:
+#  level:
+#    com.itxiaodu.credit.mapper: debug
