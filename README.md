@@ -1,5 +1,6 @@
 # credit
-##  项目结构如下：
+## 本学习项目来源与参考(尚硅谷-尚筹网)
+## 项目结构如下：
 [后台管理员系统](creditfunding-admin-parent)
 
 [前台会员系统](creditfunding-member-parent)
