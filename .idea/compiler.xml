@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="creditfunding-admin-entity" />
+        <module name="creditfunding-admin-component" />
+        <module name="creditfunding-admin-webui" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="creditfunding-admin-component" target="1.8" />
+      <module name="creditfunding-admin-entity" target="1.8" />
+      <module name="creditfunding-admin-parent" target="1.8" />
+      <module name="creditfunding-admin-webui" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

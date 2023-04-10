@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/project202106.iml" filepath="$PROJECT_DIR$/.idea/project202106.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/credit.iml" filepath="$PROJECT_DIR$/.idea/credit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-component/creditfunding-admin-component.iml" filepath="$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-component/creditfunding-admin-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-entity/creditfunding-admin-entity.iml" filepath="$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-entity/creditfunding-admin-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-parent.iml" filepath="$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-webui/creditfunding-admin-webui.iml" filepath="$PROJECT_DIR$/../project202106/creditfunding-admin-parent/creditfunding-admin-webui/creditfunding-admin-webui.iml" />
     </modules>
   </component>
 </project>
